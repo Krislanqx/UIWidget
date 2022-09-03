@@ -15,7 +15,8 @@
         <!-- 移除标题 -->
         <item name = "windowNoTitle"> true </item>
         <!-- 设置全屏 -->
-        <item name = "android:windowFullscreen" > true </item>
+<!--        <item name = "android:windowFullscreen" > true </item>-->
+
 
     </style>
 </resources>
