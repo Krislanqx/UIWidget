@@ -3,14 +3,14 @@
 
     <item
         android:id="@+id/person"
-        android:title="Person"
-        android:icon="@mipmap/ic_mri_table"/>
+        android:title="病床"
+        android:icon="@drawable/ic_vector_mri_table"/>
     <item
         android:id="@+id/home"
-        android:title="Home"
-        android:icon="@mipmap/ic_mri_table"/>
+        android:title="门控"
+        android:icon="@drawable/ic_vector_heart_pulse"/>
     <item
         android:id="@+id/settings"
-        android:title="Settings"
-        android:icon="@mipmap/ic_mri_table"/>
+        android:title="系统设置"
+        android:icon="@drawable/ic_vector_system_setting"/>
 </menu>

@@ -18,8 +18,11 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding: ActivityMainBinding
     private val tag = "MainActivity"
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
 
 
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -32,7 +35,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         setCurrentFragment(firstFragment)
 
-        binding.bottomNavigationView.setOnNavigationItemSelectedListener {
+        binding.bottomNavigationView.setOnItemSelectedListener {
             when(it.itemId){
                 R.id.home->setCurrentFragment(firstFragment)
                 R.id.person->setCurrentFragment(secondFragment)
@@ -54,6 +57,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         when (p0?.id) {
             R.id.button_Button1 -> {
                 Toast.makeText(this, "You clicked Button 1", Toast.LENGTH_SHORT).show()
+                val inputText = binding.editTextEditText1.text.toString()
+                Toast.makeText(this, inputText, Toast.LENGTH_SHORT).show()
             }
         }
     }
