@@ -8,7 +8,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
+import androidx.fragment.app.Fragment
 import com.example.uiwidget.databinding.ActivityMainBinding
+
 
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
@@ -22,8 +24,23 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        disableEditTextContextMenu(binding.editText)        //禁用EditText上下文菜单（copy share paste）
+        disableEditTextContextMenu(binding.editTextEditText1)        //禁用EditText上下文菜单（copy share paste）
 
+        val firstFragment=FirstFragment()
+        val secondFragment=SecondFragment()
+        val thirdFragment=ThirdFragment()
+
+        setCurrentFragment(firstFragment)
+
+        binding.bottomNavigationView.setOnNavigationItemSelectedListener {
+            when(it.itemId){
+                R.id.home->setCurrentFragment(firstFragment)
+                R.id.person->setCurrentFragment(secondFragment)
+                R.id.settings->setCurrentFragment(thirdFragment)
+
+            }
+            true
+        }
 
 
 
@@ -66,7 +83,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     /* 禁用EditText上下文菜单（copy share paste）
     *  https://www.geeksforgeeks.org/how-to-disable-copy-functionality-in-edittext-in-android/ */
-    fun disableEditTextContextMenu(EditText: EditText) {
+    private fun disableEditTextContextMenu(EditText: EditText) {
         // EditText禁用复制功能
         EditText.customSelectionActionModeCallback = object : ActionMode.Callback {
             override fun onCreateActionMode(p0: ActionMode?, p1: Menu?): Boolean {
@@ -82,6 +99,12 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             }
         }
     }
+
+    private fun setCurrentFragment(fragment: Fragment)=
+        supportFragmentManager.beginTransaction().apply {
+            replace(R.id.flFragment,fragment)
+            commit()
+        }
 
 
 }
